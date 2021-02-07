@@ -68,12 +68,14 @@ function startOver() {
 }
 
 $(".btn").click(function(event) {
-    var userChosenColor = event.currentTarget.id;
-    playSound(userChosenColor);
-    animatePress(userChosenColor);
+    if(started) {
+        var userChosenColor = event.currentTarget.id;
+        playSound(userChosenColor);
+        animatePress(userChosenColor);
 
-    userClickPattern.push(userChosenColor);
-    checkAnswer(userClickPattern.length - 1)
+        userClickPattern.push(userChosenColor);
+        checkAnswer(userClickPattern.length - 1)
+    }
 })
 
 $(document).on("keypress", function() {
